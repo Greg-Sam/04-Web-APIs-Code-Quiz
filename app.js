@@ -1,154 +1,257 @@
-const questionBank = ['Question 1 text', 'Question 2 text', 'Question 3 text', 'Question 4 text', 'Question 5 text', 'Question 6 text', 'Question 7 text', 'Question 8 text', 'Question 9 text', 'Question 10 text']
-
-const answer1 = {
-  answerA: [
-    {text:'First choice',
-    correct: true}]
-}
-console.log(answer1.answerA[0].correct)
-
-if answer1.answerA[0].correct === true {
-  console.log('true')
-}
-
-const answerBank = [
+// --- All the questions in the quiz ---
+const questionBank = [{
+  question: 'Question1 text',
+  answers: [
+    {
+      answerText: 'Option A',
+      answerCorrect: true
+    },
+    {
+      answerText: 'Option B',
+      answerCorrect: false
+    },
+    {
+      answerText: 'Option C',
+      answerCorrect: false
+    },
+    {
+      answerText: 'Option D',
+      answerCorrect: false
+    }
+  ]
+},
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
+    question: 'Question2 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
   },
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
+    question: 'Question3 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
   },
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
+    question: 'Question4 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
   },
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
+    question: 'Question5 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
   },
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
+    question: 'Question6 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
   },
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
+    question: 'Question7 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
   },
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
+    question: 'Question8 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
   },
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
+    question: 'Question9 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
   },
   {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
-  },
-  {
-    answerA: 'First choice',
-    correctA: true,
-    answerB: 'Second choice',
-    correctB: false,
-    answerC: 'Third choice',
-    correctC: false,
-    answerD: 'Fourth choice',
-    correctD: false
-  },
-]
-// console.log(questionBank[0])
-console.log(answerBank[0].answerC)
+    question: 'Question10 text',
+    answers: [
+      {
+        answerText: 'Option A',
+        answerCorrect: true
+      },
+      {
+        answerText: 'Option B',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option C',
+        answerCorrect: false
+      },
+      {
+        answerText: 'Option D',
+        answerCorrect: false
+      }
+    ]
+  }]
+console.log(questionBank[2].answers[2].answerCorrect)
 
 let score = 0
 let clock = 60
+// ---Put score on the page---
+document.getElementById('score').textContent = score
+// ---Put timer on page---
 document.getElementById('timer').textContent = clock
-// ---Start Quiz Button
+// ---Start Quiz Button---
 document.getElementById('start').addEventListener('click', event => {
-  event.preventDefault()
-  console.log('hi')
+  // ---Remove Start Button---
+  event.target.remove()
 
   // ---Load first question to screen
-  document.getElementById('question').textContent = questionBank[0]
+  document.getElementById('question').textContent = questionBank[0].question
 
   // ---Load first four multiple choice answers to screen
+  // ---First Answer---
   let answerElem1 = document.createElement('li')
-  answerElem1.className = 'list-group-item list-group-item-action'
-  answerElem1.textContent = (answer1.answerA[0].text)
+  answerElem1.className = 'list-group-item list-group-item-action answer'
+  answerElem1.textContent = (questionBank[0].answers[0].answerText)
+  answerElem1.classList.add(questionBank[0].answers[0].answerCorrect)
   
-  
-  
+  // ---Second Answer---
   document.getElementById('answers').append(answerElem1)
   let answerElem2 = document.createElement('li')
-  answerElem2.className = 'list-group-item list-group-item-action'
-  answerElem2.textContent = (answerBank[0].answerB)
-  // console.log(answerElem2)
+  answerElem2.className = 'list-group-item list-group-item-action answer'
+  answerElem2.textContent = (questionBank[0].answers[1].answerText)
+  answerElem2.classList.add(questionBank[0].answers[1].answerCorrect)
+
+  // ---Third Answer---
   document.getElementById('answers').append(answerElem2)
   let answerElem3 = document.createElement('li')
-  answerElem3.className = 'list-group-item list-group-item-action'
-  answerElem3.textContent = (answerBank[0].answerC)
-  // console.log(answerElem3)
+  answerElem3.className = 'list-group-item list-group-item-action answer'
+  answerElem3.textContent = (questionBank[0].answers[2].answerText)
+  answerElem3.classList.add(questionBank[0].answers[2].answerCorrect)
+
+  // ---Fourth Answer---
   document.getElementById('answers').append(answerElem3)
   let answerElem4 = document.createElement('li')
-  answerElem4.className = 'list-group-item list-group-item-action'
-  answerElem4.textContent = (answerBank[0].answerD)
-  // console.log(answerElem4)
+  answerElem4.className = 'list-group-item list-group-item-action answer'
+  answerElem4.textContent = (questionBank[0].answers[3].answerText)
+  answerElem4.classList.add(questionBank[0].answers[3].answerCorrect)
   document.getElementById('answers').append(answerElem4)
 
   // --- start clock
@@ -161,14 +264,33 @@ document.getElementById('start').addEventListener('click', event => {
 })
   // --- user answers question
   document.addEventListener('click',event => {
-    console.log(event)
+    console.log(event.target)
+    
+    if (event.target.classList.contains('answer')){
+      
+      if (event.target.classList.contains('true')) {
+        correctAnswer()
+      }else  {
+          wrongAnswer()
+        }
+      
+    }
+    
   })
+
+  function correctAnswer(){
+    console.log('That is corrrrrect')
+    score = score + 100
+    document.getElementById('score').textContent = score
+  }
   
-  
+  function wrongAnswer(){
+    console.log('Sorry, wrong answer')
+    console.log(clock)
+    clock = clock - 10
+    document.getElementById('timer').textContent = clock
 
-
-
-
+  }
 
 
 
