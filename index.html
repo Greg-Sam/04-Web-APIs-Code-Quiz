@@ -14,20 +14,23 @@
     <div class="container">
       <div class="row">
         <div class="col-sm">
-          <div class="col">
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link active" href="./highscores.html">High Scores</a>
-              </li>
-            </ul>
-          </div>
+
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="./highscores.html">High Scores</a>
+            </li>
+          </ul>
+
         </div>
         <div class="col-sm">
-          <div class="col">
-            <h5>
-              <span class="badge badge-primary">Time remaining</span>
-            </h5>
-          </div>
+          Score
+        </div>
+        <div class="col-sm">
+
+          <h5>
+            <span class="badge badge-primary">Time remaining = <span id = timer></span></span>
+          </h5>
+
         </div>
 
       </div>
@@ -36,7 +39,9 @@
   <div class="container">
     <div class="jumbotron">
       <h1 class="display-4">Web APIs Code Quiz</h1>
-      <p class="lead">Click on the correct answer.  You have 60 seconds to answer as many questions as you can.  Do you have what it takes to get the high score?  Be careful!  For every wrong answer, 10 seconds will be removed from the timer.</p>
+      <p class="lead">Click on the correct answer. You have 60 seconds to answer as many questions as you can. Do you
+        have what it takes to get the high score? Be careful, every wrong answer will cost you 10 seconds from the
+        timer.</p>
       <hr class="my-4">
       <div class="card mx-auto" style="width: 50rem;">
         <div class="card-body">
@@ -52,8 +57,10 @@
             <a href="#" class="list-group-item list-group-item-action">Text for the third answer option</a>
             <a href="#" class="list-group-item list-group-item-action">Text for the fourth answer option</a> -->
           </div>
-          
-          
+          <div>
+            <button id="start" type="button" class="btn btn-danger">Start Quiz</button>
+          </div>
+
         </div>
       </div>
     </div>
