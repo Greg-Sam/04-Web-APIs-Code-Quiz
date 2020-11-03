@@ -96,7 +96,7 @@ const questionBank = [{
     },
     {
       answerText: 'create space inside of an elements borders',
-      answerCorrect: false
+      answerCorrect: true
     },
     {
       answerText: 'do the exact same thing as margins',
@@ -105,106 +105,106 @@ const questionBank = [{
   ]
 },
 {
-  question: 'Question6 text',
+  question: 'You can make an element change when a mouse hovers over it ',
   answers: [
     {
-      answerText: 'Option A',
+      answerText: 'by magic',
+      answerCorrect: false
+    },
+    {
+      answerText: 'with HTML hidden features',
+      answerCorrect: false
+    },
+    {
+      answerText: 'by using a CSS pseudo-class',
       answerCorrect: true
     },
     {
-      answerText: 'Option B',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option C',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option D',
+      answerText: 'only with the Google Chrome browser',
       answerCorrect: false
     }
   ]
 },
 {
-  question: 'Question7 text',
+  question: 'In bootstrap, the screen is divided into __ rows.',
   answers: [
     {
-      answerText: 'Option A',
+      answerText: '12',
       answerCorrect: true
     },
     {
-      answerText: 'Option B',
+      answerText: '8',
       answerCorrect: false
     },
     {
-      answerText: 'Option C',
+      answerText: '6',
       answerCorrect: false
     },
     {
-      answerText: 'Option D',
+      answerText: '4',
       answerCorrect: false
     }
   ]
 },
 {
-  question: 'Question8 text',
+  question: 'In JavaScript you can declare a variable after it has been called because of',
   answers: [
     {
-      answerText: 'Option A',
+      answerText: 'lifting',
+      answerCorrect: false
+    },
+    {
+      answerText: 'variable elevation',
+      answerCorrect: false
+    },
+    {
+      answerText: 'unordered classes',
+      answerCorrect: false
+    },
+    {
+      answerText: 'hoisting',
+      answerCorrect: true
+    }
+  ]
+},
+{
+  question: 'RGB, HEX and HSL refer to ____ in HTML.',
+  answers: [
+    {
+      answerText: 'colors',
       answerCorrect: true
     },
     {
-      answerText: 'Option B',
+      answerText: 'user screen types',
       answerCorrect: false
     },
     {
-      answerText: 'Option C',
+      answerText: 'video cards',
       answerCorrect: false
     },
     {
-      answerText: 'Option D',
+      answerText: 'style libraries',
       answerCorrect: false
     }
   ]
 },
 {
-  question: 'Question9 text',
+  question: 'Bootstrap is an example of a ____.',
   answers: [
     {
-      answerText: 'Option A',
+      answerText: 'language',
+      answerCorrect: false
+    },
+    {
+      answerText: 'style library',
       answerCorrect: true
     },
     {
-      answerText: 'Option B',
+      answerText: 'shortcut that developers should avoid',
       answerCorrect: false
     },
     {
-      answerText: 'Option C',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option D',
-      answerCorrect: false
-    }
-  ]
-},
-{
-  question: 'Question10 text',
-  answers: [
-    {
-      answerText: 'Option A',
-      answerCorrect: true
-    },
-    {
-      answerText: 'Option B',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option C',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option D',
+      answerText: 'outdated footwear accessory',
       answerCorrect: false
     }
   ]
@@ -214,7 +214,7 @@ const questionBank = [{
 let score = 0
 let clock = 60
 let counter = 0
-
+let time
 
 // ---Put score on the page---
 document.getElementById('score').textContent = score
@@ -257,12 +257,16 @@ document.getElementById('start').addEventListener('click', event => {
   answerElem4.classList.add(questionBank[0].answers[3].answerCorrect)
   document.getElementById('answers').append(answerElem4)
 
-  // --- start clock
-  let time = setInterval(() => {
+  clockStart()
+})
+
+// --- start clock
+function clockStart() {
+  time = setInterval(() => {
     clock--
     document.getElementById('timer').textContent = clock
   }, 1000)
-})
+}
 
 
 // --- get user's answer---
@@ -288,8 +292,13 @@ function correctAnswer() {
   document.getElementById('score').textContent = score
 
   // ---Tell them they got it right---
-  document.getElementById('result').innerHTML = '<div class="alert alert-success" role="alert">Great job! You got it right!</div >'
-
+  document.getElementById('result').innerHTML = '<id = "alert" div class="alert alert-success" role="alert">Great job! You got it right!</id >'
+  
+  // ---fade alert---
+  setTimeout(() => {
+    document.getElementById('alert').alert('close')
+  }, 3000)
+  
   //---Load next question or end game---
   counter++
   if (counter < 10) {
@@ -310,6 +319,12 @@ function wrongAnswer() {
 
   // ---Tell them they got it wrong---
   document.getElementById('result').innerHTML = '<div class="alert alert-danger" role="alert">Oh no, you missed it!  And you lost 10 seconds, too!</div >'
+
+  // ---fade alert---
+  setTimeout(() => {
+    document.getElementById('alert').alert('close')
+  }, 3000)
+
   //---Load next question or end game---
   counter++
   if (counter < 10) {
@@ -371,9 +386,10 @@ function nextQuestion() {
 // ---End of game---
 function gameEnd() {
   removeElementsByClass()
+  stopClock()
   //---Game over message with display score---
   document.getElementById('question').textContent = `Game over - Your score was: ${score}`
-  document.getElementById('timer').remove()
+  document.getElementById('timer').parentNode.remove()
   // ---Form for getting name---
   document.getElementById('row').innerHTML = `
   <div class="col">
@@ -392,4 +408,8 @@ function gameEnd() {
     localStorage.setItem('score', score)
   })
 }
-
+// --- stop the timer ---
+function stopClock() {
+    clearInterval(time)
+    clock = 0
+}
