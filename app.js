@@ -258,8 +258,6 @@ document.getElementById('start').addEventListener('click', event => {
   document.getElementById('answers').append(answerElem4)
 
   // --- start clock
-
-
   let time = setInterval(() => {
     clock--
     document.getElementById('timer').textContent = clock
@@ -292,18 +290,15 @@ function correctAnswer() {
   // ---Tell them they got it right---
   document.getElementById('result').innerHTML = '<div class="alert alert-success" role="alert">Great job! You got it right!</div >'
 
-  //---Load next question---
+  //---Load next question or end game---
   counter++
   if (counter < 10) {
     nextQuestion()
   } else {
-    removeElementsByClass()
-    document.getElementById('question').textContent = 'Game over'
+    gameEnd()
   }
   if (clock < 0) {
-    removeElementsByClass()
-    document.getElementById('question').textContent = 'Time is up!'
-    clock = 0
+    gameEnd()
   }
 }
 
@@ -315,19 +310,15 @@ function wrongAnswer() {
 
   // ---Tell them they got it wrong---
   document.getElementById('result').innerHTML = '<div class="alert alert-danger" role="alert">Oh no, you missed it!  And you lost 10 seconds, too!</div >'
-  //---Load next question---
+  //---Load next question or end game---
   counter++
   if (counter < 10) {
     nextQuestion()
-  } else
-  {
-    removeElementsByClass()
-    document.getElementById('question').textContent = 'Game over'
+  } else {
+    gameEnd()
   }
   if (clock < 0) {
-    removeElementsByClass()
-    document.getElementById('question').textContent = 'Time is up!'
-    clock = 0
+    gameEnd()
   }
 }
 
@@ -346,7 +337,7 @@ function nextQuestion() {
 
   // ---Remove previous answers---
   removeElementsByClass()
-  
+
 
   // ---Load next four multiple choice answers to screen
   // ---First Answer---
@@ -376,5 +367,26 @@ function nextQuestion() {
   answerElem4.textContent = (questionBank[counter].answers[3].answerText)
   answerElem4.classList.add(questionBank[counter].answers[3].answerCorrect)
   document.getElementById('answers').append(answerElem4)
+}
+// ---End of game---
+function gameEnd() {
+  removeElementsByClass()
+  //---Game over message with display score---
+  document.getElementById('question').textContent = `Game over - Your score was: ${score}`
+  document.getElementById('timer').remove()
+  // ---Form for getting name---
+  document.getElementById('row').innerHTML = `
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Enter your name for high score records">
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button id = "submit" type="submit" class="btn btn-primary">Submit
+    </button>
+    </div>
+  </div>`
+}
 
+document.getElementById('submit').addEventListener('click', event =>{
+  
 }
