@@ -1,105 +1,105 @@
 // --- All the questions in the quiz ---
 const questionBank = [{
-  question: 'Question1 text',
+  question: 'Inside which HTML element do we put the JavaScript?',
   answers: [
     {
-      answerText: 'Option A',
+      answerText: '<javascript>',
+      answerCorrect: false
+    },
+    {
+      answerText: '<script>',
       answerCorrect: true
     },
     {
-      answerText: 'Option B',
+      answerText: '<js>',
       answerCorrect: false
     },
     {
-      answerText: 'Option C',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option D',
+      answerText: '<scripting>',
       answerCorrect: false
     }
   ]
 },
 {
-  question: 'Question2 text',
+  question: 'What is the standard markup language for creating Web pages.',
   answers: [
     {
-      answerText: 'Option A',
+      answerText: 'CSS',
+      answerCorrect: false
+    },
+    {
+      answerText: 'Bootstrap',
+      answerCorrect: false
+    },
+    {
+      answerText: 'HTML',
       answerCorrect: true
     },
     {
-      answerText: 'Option B',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option C',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option D',
+      answerText: 'JavaScript',
       answerCorrect: false
     }
   ]
 },
 {
-  question: 'Question3 text',
+  question: '<h1> is an HTML',
   answers: [
     {
-      answerText: 'Option A',
+      answerText: 'Element',
       answerCorrect: true
     },
     {
-      answerText: 'Option B',
+      answerText: 'Style',
       answerCorrect: false
     },
     {
-      answerText: 'Option C',
+      answerText: 'Script',
       answerCorrect: false
     },
     {
-      answerText: 'Option D',
+      answerText: 'List',
       answerCorrect: false
     }
   ]
 },
 {
-  question: 'Question4 text',
+  question: 'CSS stands for ',
   answers: [
     {
-      answerText: 'Option A',
+      answerText: 'Comma Seperated Sentences',
+      answerCorrect: false
+    },
+    {
+      answerText: 'Conditional Style System',
+      answerCorrect: false
+    },
+    {
+      answerText: ' Cascading Style Sheets',
       answerCorrect: true
     },
     {
-      answerText: 'Option B',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option C',
-      answerCorrect: false
-    },
-    {
-      answerText: 'Option D',
+      answerText: 'Cannot stop singing',
       answerCorrect: false
     }
   ]
 },
 {
-  question: 'Question5 text',
+  question: 'In CSS, padding is used to ',
   answers: [
     {
-      answerText: 'Option A',
-      answerCorrect: true
-    },
-    {
-      answerText: 'Option B',
+      answerText: 'create space outside of an elements borders',
       answerCorrect: false
     },
     {
-      answerText: 'Option C',
+      answerText: 'protect an element if it falls',
       answerCorrect: false
     },
     {
-      answerText: 'Option D',
+      answerText: 'create space inside of an elements borders',
+      answerCorrect: false
+    },
+    {
+      answerText: 'do the exact same thing as margins',
       answerCorrect: false
     }
   ]
@@ -377,7 +377,7 @@ function gameEnd() {
   // ---Form for getting name---
   document.getElementById('row').innerHTML = `
   <div class="col">
-    <input type="text" class="form-control" placeholder="Enter your name for high score records">
+    <input id = 'name' type="text" class="form-control" placeholder="Enter your name for high score records">
   </div>
   <div class="form-group row">
     <div class="col-sm-10">
@@ -385,8 +385,11 @@ function gameEnd() {
     </button>
     </div>
   </div>`
+
+  document.getElementById('submit').addEventListener('click', event => {
+    event.preventDefault()
+    localStorage.setItem('name', document.getElementById('name').value)
+    localStorage.setItem('score', score)
+  })
 }
 
-document.getElementById('submit').addEventListener('click', event =>{
-  
-}
