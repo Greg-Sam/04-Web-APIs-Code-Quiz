@@ -217,6 +217,11 @@ let counter = 0
 let time
 let scores = JSON.parse(localStorage.getItem('highScores'))
 console.log(scores)
+if (scores) {
+  console.log(scores)}
+else{
+  scores = [{name: 'Empty',
+score: 0}]}
 // ---Put score on the page---
 document.getElementById('score').textContent = score
 // ---Put timer on page---
