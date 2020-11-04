@@ -417,8 +417,14 @@ function gameEnd() {
       score: score})
     console.log(scores)
     localStorage.setItem('highScores', JSON.stringify(scores))
+    document.getElementById('restart').innerHTML = '<button id= "again" type="button" class="btn btn-secondary">Try Again</button>'
   })
 }
+// ---restart game---
+document.getElementById('restart').addEventListener('click', event => {
+  location.reload()
+})
+
 // --- stop the timer ---
 function stopClock() {
     clearInterval(time)
