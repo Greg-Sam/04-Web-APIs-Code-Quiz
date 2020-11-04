@@ -411,7 +411,6 @@ function gameEnd() {
       name: name,
       score: score})
     console.log(scores)
-    localStorage.setItem('name', name)
     localStorage.setItem('highScores', JSON.stringify(scores))
   })
 }
