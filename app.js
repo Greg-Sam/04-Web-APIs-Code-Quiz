@@ -215,7 +215,8 @@ let score = 0
 let clock = 60
 let counter = 0
 let time
-
+let scores = JSON.parse(localStorage.getItem('highScores'))
+console.log(scores)
 // ---Put score on the page---
 document.getElementById('score').textContent = score
 // ---Put timer on page---
@@ -295,9 +296,9 @@ function correctAnswer() {
   document.getElementById('result').innerHTML = '<id = "alert" div class="alert alert-success" role="alert">Great job! You got it right!</id >'
   
   // ---fade alert---
-  setTimeout(() => {
-    document.getElementById('alert').alert('close')
-  }, 3000)
+  // setTimeout(() => {
+  //   document.getElementById('alert').alert('close')
+  // }, 3000)
   
   //---Load next question or end game---
   counter++
@@ -321,9 +322,9 @@ function wrongAnswer() {
   document.getElementById('result').innerHTML = '<div class="alert alert-danger" role="alert">Oh no, you missed it!  And you lost 10 seconds, too!</div >'
 
   // ---fade alert---
-  setTimeout(() => {
-    document.getElementById('alert').alert('close')
-  }, 3000)
+  // setTimeout(() => {
+  //   document.getElementById('alert').alert('close')
+  // }, 3000)
 
   //---Load next question or end game---
   counter++
@@ -401,11 +402,17 @@ function gameEnd() {
     </button>
     </div>
   </div>`
-
+  // ---send to local storage---
   document.getElementById('submit').addEventListener('click', event => {
     event.preventDefault()
-    localStorage.setItem('name', document.getElementById('name').value)
-    localStorage.setItem('score', score)
+    let name = document.getElementById('name').value
+    console.log(name)
+    scores.push({
+      name: name,
+      score: score})
+    console.log(scores)
+    localStorage.setItem('name', name)
+    localStorage.setItem('highScores', JSON.stringify(scores))
   })
 }
 // --- stop the timer ---
