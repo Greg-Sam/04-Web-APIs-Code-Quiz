@@ -218,10 +218,14 @@ let time
 let scores = JSON.parse(localStorage.getItem('highScores'))
 console.log(scores)
 if (scores) {
-  console.log(scores)}
-else{
-  scores = [{name: 'Empty',
-score: 0}]}
+  console.log(scores)
+}
+else {
+  scores = [{
+    name: 'Empty',
+    score: 0
+  }]
+}
 // ---Put score on the page---
 document.getElementById('score').textContent = score
 // ---Put timer on page---
@@ -270,6 +274,10 @@ document.getElementById('start').addEventListener('click', event => {
 function clockStart() {
   time = setInterval(() => {
     clock--
+    if (clock <=0) {
+      clearInterval(time)
+      gameEnd()
+    }
     document.getElementById('timer').textContent = clock
   }, 1000)
 }
@@ -299,12 +307,12 @@ function correctAnswer() {
 
   // ---Tell them they got it right---
   document.getElementById('result').innerHTML = '<id = "alert" div class="alert alert-success" role="alert">Great job! You got it right!</id >'
-  
+
   // ---fade alert---
   // setTimeout(() => {
   //   document.getElementById('alert').alert('close')
   // }, 3000)
-  
+
   //---Load next question or end game---
   counter++
   if (counter < 10) {
@@ -312,7 +320,7 @@ function correctAnswer() {
   } else {
     gameEnd()
   }
-  if (clock < 0) {
+  if (clock <= 0) {
     gameEnd()
   }
 }
@@ -414,7 +422,8 @@ function gameEnd() {
     console.log(name)
     scores.push({
       name: name,
-      score: score})
+      score: score
+    })
     console.log(scores)
     localStorage.setItem('highScores', JSON.stringify(scores))
     document.getElementById('restart').innerHTML = '<button id= "again" type="button" class="btn btn-secondary">Try Again</button>'
@@ -427,6 +436,6 @@ document.getElementById('restart').addEventListener('click', event => {
 
 // --- stop the timer ---
 function stopClock() {
-    clearInterval(time)
-    clock = 0
+  clearInterval(time)
+  clock = 0
 }
